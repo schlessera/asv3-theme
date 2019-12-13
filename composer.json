@@ -1,0 +1,13 @@
+{
+    "name": "schlessera/asv3-theme",
+    "description": "Custom theme for the https://www.alainschlesser.com website",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alain Schlesser",
+            "email": "alain.schlesser@gmail.com"
+        }
+    ],
+    "require": {}
+}
