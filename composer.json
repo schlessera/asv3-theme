@@ -1,13 +1,57 @@
 {
-    "name": "schlessera/asv3-theme",
-    "description": "Custom theme for the https://www.alainschlesser.com website",
-    "type": "wordpress-theme",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Alain Schlesser",
-            "email": "alain.schlesser@gmail.com"
-        }
+  "name": "mwpd/mwpd-theme",
+  "description": "Theme for the homepage of the MWPD project.",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alain Schlesser",
+      "email": "alain.schlesser@gmail.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "0.6.2",
+    "phpcompatibility/phpcompatibility-wp": "2.1.0",
+    "php-parallel-lint/php-parallel-lint": "^1.2",
+    "php-stubs/wordpress-stubs": "^5.3.2",
+    "phpunit/phpunit": "^6",
+    "phpstan/phpstan": "^0.11.5",
+    "roave/security-advisories": "dev-master",
+    "sirbrillig/phpcs-variable-analysis": "2.8.1",
+    "squizlabs/php_codesniffer": "^3",
+    "vimeo/psalm": "^3.2",
+    "wp-coding-standards/wpcs": "2.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MWPD\\MwpdTheme\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MWPD\\MwpdTheme\\Tests\\": "tests/php/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "7.2"
+    },
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "cbf": "phpcbf",
+    "cs": "if [ -z $TEST_SKIP_PHPCS ]; then phpcs; fi",
+    "lint": "if [ -z $TEST_SKIP_LINTING ]; then parallel-lint -j 10 --colors --exclude vendor .; fi",
+    "test": [
+      "@lint",
+      "@unit",
+      "@cs",
+      "@analyze"
     ],
-    "require": {}
+    "analyze": "if [ -z $TEST_SKIP_PHPSTAN ]; then phpstan analyze --ansi; fi",
+    "unit": "if [ -z $TEST_SKIP_PHPUNIT ]; then phpunit --colors=always; fi"
+  }
 }

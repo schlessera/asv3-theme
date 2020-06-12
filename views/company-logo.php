@@ -1,0 +1,1 @@
+<img src="placehold.it/100x100">
