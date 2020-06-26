@@ -43,6 +43,8 @@ class SimpleView implements View {
 	 */
 	protected $_context_ = [];
 
+	protected $_replaced_sections_ = [];
+
 	/** @var ViewFactory */
 	protected $view_factory;
 
@@ -109,9 +111,27 @@ class SimpleView implements View {
 	 * @throws InvalidPath If the provided path was not valid.
 	 * @throws FailedToLoadView If the view could not be loaded.
 	 */
-	public function render_partial( string $path, array $context = null ): string {
-		return $this->view_factory->create( $path )
-		                          ->render( $context ?: $this->_context_ );
+	public function section( string $path, array $context = null ): string {
+		if ( array_key_exists( $path, $this->_replaced_sections_ ) ) {
+			$path = $this->_replaced_sections_[ $path ];
+		}
+
+		/** @var self $view */
+		$view = $this->view_factory->create( $path );
+
+		$view->_replaced_sections_ = $this->_replaced_sections_;
+
+		return $view->render( $context ?: $this->_context_ );
+	}
+
+	/**
+	 * Replace a section by another section.
+	 *
+	 * @param string $from Section to replace.
+	 * @param string $to Section to use as replacement.
+	 */
+	public function replace_section( string $from, string $to ) {
+		$this->_replaced_sections_[ $from ] = $to;
 	}
 
 	/**

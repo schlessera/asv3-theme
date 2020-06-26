@@ -53,7 +53,15 @@ interface View extends Renderable {
 	 * @throws InvalidPath If the provided path was not valid.
 	 * @throws FailedToLoadView If the view could not be loaded.
 	 */
-	public function render_partial( string $path, array $context = null ): string;
+	public function section( string $path, array $context = null ): string;
+
+	/**
+	 * Replace a section by another section.
+	 *
+	 * @param string $from Section to replace.
+	 * @param string $to Section to use as replacement.
+	 */
+	public function replace_section( string $from, string $to );
 
 	/**
 	 * Return the raw value of a context property.

@@ -1,1 +1,1 @@
-<img src="placehold.it/100x100">
+<img src="https://via.placeholder.com/100" width="50" height="50">

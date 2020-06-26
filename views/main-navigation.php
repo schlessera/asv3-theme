@@ -1,22 +1,24 @@
 <?php /** @var MWPD\MwpdTheme\Infrastructure\View $this */ ?>
+<?php
+var_dump( get_nav_menu_locations() );
+?>
+?>
 <div>
-	<?= $this->render_partial( 'views/company-logo' ) ?>
 <nav class="bg-indigo-700">
 	<div class="max-w-7xl acmx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
 			<div class="flex items-center">
 				<div class="flex-shrink-0">
-					<imhp g class="h-8 w-8" src="/img/logos/workflow-mark-on-brand.svg" alt="Workflow logo" />
+					<?= $this->section( 'company-logo' ) ?>
 				</div>
-				<div class="hidden md:block">
-					<div class="ml-10 flex items-baseline">
-						<a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-indigo-800 focus:outline-none focus:text-white focus:bg-indigo-600">Dashboard</a>
-						<a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Team</a>
-						<a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Projects</a>
-						<a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Calendar</a>
-						<a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Reports</a>
-					</div>
-				</div>
+				<?php
+				wp_nav_menu( [
+					'menu'   => 'main-navigation',
+					'walker' => $this->injector->make( 'Walker_Nav_Menu' ),
+					'container_class' => 'hidden md:block',
+					'menu_class' => 'ml-10 flex items-baseline',
+				] );
+				?>
 			</div>
 			<div class="hidden md:block">
 				<div class="ml-4 flex items-center md:ml-6">

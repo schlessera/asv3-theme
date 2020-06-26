@@ -1,17 +1,25 @@
 <?php namespace MWPD\MwpdTheme;
 
+use MWPD\MwpdTheme\Infrastructure\Injector;
 use MWPD\MwpdTheme\Infrastructure\ViewFactory;
 
+$container = MwpdThemeFactory::create()
+                             ->get_container();
+
 /** @var ViewFactory $view_factory */
-$view_factory = MwpdThemeFactory::create()
-                                ->get_container()
-                                ->get( MwpdTheme::VIEW_FACTORY_ID );
-?>
+$view_factory = $container->get( MwpdTheme::VIEW_FACTORY_ID );
 
-<?php get_header(); ?>
+/** @var Injector $injector */
+$injector = $container->get( MwpdTheme::INJECTOR_ID );
 
-<?= $view_factory->create( 'views/main-navigation' )->render() ?>
-<?= $view_factory->create( 'views/page-header' )->render() ?>
-<?= $view_factory->create( 'views/page-main' )->render() ?>
+$layout = 'layout';
 
-<?php get_footer(); ?>
+if ( is_404() ) {
+	$layout = '404';
+}
+
+echo $view_factory->create( $layout )
+	->render( [
+		'view_factory' => $view_factory,
+		'injector' => $injector
+	] );

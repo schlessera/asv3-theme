@@ -1,2 +1,2 @@
-<?= $this->render_partial( 'views/body-close' ) ?>
-<?= $this->render_partial( 'views/document-close' ) ?>
+<?= $this->section( 'body-close' ) ?>
+<?= $this->section( 'document-close' ) ?>

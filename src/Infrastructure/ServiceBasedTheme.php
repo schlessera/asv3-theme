@@ -141,7 +141,7 @@ abstract class ServiceBasedTheme implements Theme {
 
 		// Add the injector as the very first service.
 		$this->service_container->put(
-			static::SERVICE_PREFIX . static::INJECTOR_ID,
+			static::INJECTOR_ID,
 			$this->injector
 		);
 

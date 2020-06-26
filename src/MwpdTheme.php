@@ -13,11 +13,14 @@
 namespace MWPD\MwpdTheme;
 
 use MWPD\MwpdTheme\Asset\MainStylesheet;
+use MWPD\MwpdTheme\Navigation\MainNavigationMenuWalker;
+use MWPD\MwpdTheme\Navigation\MenuLocations;
 use MWPD\MwpdTheme\Infrastructure\{
 	ServiceBasedTheme,
 	View\TemplatedViewFactory,
 	ViewFactory
 };
+use Walker_Nav_Menu;
 
 /**
  * The MwpdTheme class is the composition root of the theme.
@@ -55,6 +58,7 @@ final class MwpdTheme extends ServiceBasedTheme {
 			// Add your service definitions here.
 			self::MAIN_STYLESHEET_ID => MainStylesheet::class,
 			self::VIEW_FACTORY_ID    => ViewFactory::class,
+			'navigation'             => MenuLocations::class,
 		];
 	}
 
@@ -81,7 +85,7 @@ final class MwpdTheme extends ServiceBasedTheme {
 			// Map the ViewFactory interface to a concrete implementation.
 			ViewFactory::class => TemplatedViewFactory::class,
 
-			// Add your bindings here.
+			Walker_Nav_Menu::class => MainNavigationMenuWalker::class,
 		];
 	}
 

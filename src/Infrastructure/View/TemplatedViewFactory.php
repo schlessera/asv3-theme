@@ -71,11 +71,11 @@ final class TemplatedViewFactory implements Service, ViewFactory {
 			$default_locations = ( function_exists( 'get_stylesheet_directory' )
 			                       && function_exists( 'get_template_directory' ) )
 				? [
-					\get_stylesheet_directory(),
-					\get_template_directory(),
-					\dirname( __DIR__, 3 ),
+					trailingslashit( \get_stylesheet_directory() ) . 'views/',
+					trailingslashit( \get_template_directory() ) . 'views/',
+					trailingslashit( \dirname( __DIR__, 3 ) ) . 'views/',
 				]
-				: [ \dirname( __DIR__, 3 ) ];
+				: [ trailingslashit( \dirname( __DIR__, 3 ) ) . 'views/' ];
 		}
 
 		return $default_locations;
