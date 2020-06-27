@@ -1,8 +1,4 @@
 <?php /** @var MWPD\MwpdTheme\Infrastructure\View $this */ ?>
-<?php
-var_dump( get_nav_menu_locations() );
-?>
-?>
 <div>
 <nav class="bg-indigo-700">
 	<div class="max-w-7xl acmx-auto px-4 sm:px-6 lg:px-8">

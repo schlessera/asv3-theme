@@ -76,7 +76,10 @@ final class MainNavigationMenuWalker extends Walker_Nav_Menu {
 		if ( $this->element_index !== 0 ) {
 			$classes = 'ml-4 ' . $classes;
 		}
-		$output .= '<a href="#" class="' . $classes . '">';
+		$url = preg_match( '#^http[s]?://.*$#i', $item->url )
+			? $item->url
+			: home_url( $item->url );
+		$output .= '<a href="' . $url . '" class="' . $classes . '">';
 		$output .= $item->title;
 		$output .= '</a>';
 
