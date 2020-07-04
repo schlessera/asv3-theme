@@ -13,6 +13,7 @@
 namespace MWPD\MwpdTheme;
 
 use MWPD\MwpdTheme\Asset\MainStylesheet;
+use MWPD\MwpdTheme\Sidebar\BlogSidebar;
 use MWPD\MwpdTheme\Navigation\MainNavigationMenuWalker;
 use MWPD\MwpdTheme\Navigation\MenuLocations;
 use MWPD\MwpdTheme\Infrastructure\{
@@ -59,6 +60,7 @@ final class MwpdTheme extends ServiceBasedTheme {
 			self::MAIN_STYLESHEET_ID => MainStylesheet::class,
 			self::VIEW_FACTORY_ID    => ViewFactory::class,
 			'navigation'             => MenuLocations::class,
+			'blog_sidebar'           => BlogSidebar::class,
 		];
 	}
 

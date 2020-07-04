@@ -1,0 +1,45 @@
+article {
+	h1 {
+		@apply pt-16;
+		@apply pb-8;
+		@apply text-5xl;
+	}
+
+	h2 {
+		@apply pt-16;
+		@apply pb-8;
+		@apply text-4xl;
+	}
+
+	h3 {
+		@apply pt-12;
+		@apply pb-6;
+		@apply text-3xl;
+	}
+
+	h4 {
+		@apply pt-8;
+		@apply pb-4;
+		@apply text-2xl;
+	}
+
+	h5 {
+		@apply pt-6;
+		@apply pb-3;
+		@apply text-xl;
+	}
+
+	h6 {
+		@apply pt-4;
+		@apply pb-2;
+		@apply text-lg;
+	}
+
+	a {
+		@apply text-blue-600 underline;
+	}
+
+	p {
+		@apply pb-2;
+	}
+}

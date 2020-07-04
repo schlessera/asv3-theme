@@ -13,7 +13,7 @@ echo $this->section( 'header' );
 
 echo $this->section( 'main-navigation' );
 echo $this->section( 'page-header' );
-echo $this->section( 'page-main' );
+echo $this->section( 'page-body' );
 
 /**
  * Fires before the footer template file is loaded.

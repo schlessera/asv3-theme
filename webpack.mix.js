@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-require('laravel-mix-purgecss');
+//require('laravel-mix-purgecss');
 
 mix.setPublicPath('./assets');
 
@@ -11,7 +11,7 @@ mix.webpackConfig({
 });
 
 mix.browserSync({
-	proxy: 'modernwp.localhost',
+	proxy: 'asv3.lndo.site',
 	injectChanges: true,
 	open: false,
 	files: [

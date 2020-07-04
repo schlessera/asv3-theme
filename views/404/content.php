@@ -1,0 +1,1 @@
+<img src="https://asv3.lndo.site/wp-content/uploads/2020/07/HTML-Yeti-404-Page.gif" alt="404">

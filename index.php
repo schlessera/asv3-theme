@@ -15,7 +15,11 @@ $injector = $container->get( MwpdTheme::INJECTOR_ID );
 $layout = 'layout';
 
 if ( is_404() ) {
-	$layout = '404';
+	$layout = '404/layout';
+}
+
+if ( is_front_page() ) {
+	$layout = 'frontpage/layout';
 }
 
 echo $view_factory->create( $layout )
