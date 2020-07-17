@@ -14,6 +14,10 @@ $injector = $container->get( MwpdTheme::INJECTOR_ID );
 
 $layout = 'layout';
 
+if ( is_archive() || is_home() ) {
+	$layout = 'archive/layout';
+}
+
 if ( is_404() ) {
 	$layout = '404/layout';
 }
