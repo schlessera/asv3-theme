@@ -1,4 +1,5 @@
-<?php /** @var MWPD\MwpdTheme\Infrastructure\View $this */
+<?php
+/** @var MWPD\MwpdTheme\Infrastructure\View $this */
 
 use MWPD\MwpdTheme\Navigation\MainNavigationMenuWalker;
 use MWPD\MwpdTheme\Navigation\MobileNavigationMenuWalker; ?>

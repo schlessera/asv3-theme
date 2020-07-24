@@ -15,14 +15,12 @@ namespace MWPD\MwpdTheme;
 use MWPD\MwpdTheme\Asset\MainStylesheet;
 use MWPD\MwpdTheme\Navigation\Pagination;
 use MWPD\MwpdTheme\Sidebar\BlogSidebar;
-use MWPD\MwpdTheme\Navigation\MainNavigationMenuWalker;
 use MWPD\MwpdTheme\Navigation\MenuLocations;
 use MWPD\MwpdTheme\Infrastructure\{
 	ServiceBasedTheme,
 	View\TemplatedViewFactory,
 	ViewFactory
 };
-use Walker_Nav_Menu;
 
 /**
  * The MwpdTheme class is the composition root of the theme.
@@ -88,8 +86,6 @@ final class MwpdTheme extends ServiceBasedTheme {
 		return [
 			// Map the ViewFactory interface to a concrete implementation.
 			ViewFactory::class => TemplatedViewFactory::class,
-
-			Walker_Nav_Menu::class => MainNavigationMenuWalker::class,
 		];
 	}
 
