@@ -9,7 +9,9 @@
       "email": "alain.schlesser@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "ext-json": "*"
+  },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "0.6.2",
     "phpcompatibility/phpcompatibility-wp": "2.1.0",

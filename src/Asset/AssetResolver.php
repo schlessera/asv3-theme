@@ -14,12 +14,10 @@ namespace MWPD\MwpdTheme\Asset;
 
 final class AssetResolver {
 
-
-
 	/**
-	 * @var array
+	 * @var string[]|null
 	 */
-	private static $manifest = [];
+	private static  $manifest;
 
 
 	/**
@@ -27,17 +25,15 @@ final class AssetResolver {
 	 *
 	 * @return string
 	 */
-	public static function resolve( $path ) {
-		if ( $map = self::get_manifest() ) {
+	public static function resolve( $path ): string {
+		$path = self::leading_slash_it( $path );
+		$map  = self::get_manifest();
 
-			$path = self::leading_slash_it( $path );
-
-			if ( isset( $map[ $path ] ) ) {
-				return get_stylesheet_directory_uri() . '/assets' . self::leading_slash_it( $map[ $path ] );
-			}
+		if ( ! is_array( $map ) || ! isset( $map[ $path ] ) ) {
+			return get_stylesheet_directory_uri() . '/assets' . $path;
 		}
 
-		return '';
+		return get_stylesheet_directory_uri() . '/assets' . self::leading_slash_it( $map[ $path ] );
 	}
 
 
@@ -45,15 +41,11 @@ final class AssetResolver {
 	 * @return array|mixed|object
 	 */
 	private static function get_manifest() {
-		if ( ! self::$manifest ) {
-			$manifest = get_stylesheet_directory() . '/assets/mix-manifest.json';
-
-			if (
-				$map = file_get_contents( $manifest ) and
-				is_array( $map = json_decode( $map, true ) )
-			) {
-				self::$manifest = $map;
-			}
+		if ( null === self::$manifest ) {
+			$manifest       = get_stylesheet_directory() . '/assets/mix-manifest.json';
+			$map            = file_get_contents( $manifest );
+			$map            = json_decode( $map, true );
+			self::$manifest = $map;
 		}
 
 		return self::$manifest;
@@ -65,7 +57,7 @@ final class AssetResolver {
 	 *
 	 * @return string
 	 */
-	private static function leading_slash_it( $string ) {
+	private static function leading_slash_it( $string ): string {
 		return '/' . ltrim( $string, '/\\' );
 	}
 }
