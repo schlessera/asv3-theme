@@ -1,9 +1,13 @@
 includes:
-	# @see https://github.com/phpstan/phpstan-src/blob/master/conf/bleedingEdge.neon
-	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
-	level: max
-	autoload_files:
-	- %currentWorkingDirectory%/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+	#level: max
+	level: 5
+	inferPrivatePropertyTypeFromConstructor: true
 	paths:
-	- %currentWorkingDirectory%/src/
+		- src/
+	ignoreErrors:
+		# See value object https://github.com/szepeviktor/phpstan-wordpress/blob/master/example/class-wp-nav-menu-item.php
+		- '#^Access to an undefined property WP_Post::\$(current|url|title)\.$#'
+		# Consider making the class or the constructor final
+		- '#^Unsafe usage of new static\(\)\.$#'
