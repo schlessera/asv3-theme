@@ -1,1 +1,1 @@
-partial C from parent theme - <?= $this->render_partial( 'partial-d' ) ?>
+partial C from parent theme - <?= $this->section( 'partial-d' ) ?>

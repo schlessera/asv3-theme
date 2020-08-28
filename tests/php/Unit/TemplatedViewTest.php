@@ -48,7 +48,7 @@ final class TemplatedViewTest extends TestCase {
 		);
 	}
 
-	public function test_it_can_render_partials(): void {
+	public function test_it_can_render_sections(): void {
 		$view_factory_mock = $this->createMock( ViewFactory::class );
 		$view_factory_mock
 			->expects( $this->once() )

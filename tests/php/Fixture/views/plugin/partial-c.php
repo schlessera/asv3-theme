@@ -1,1 +1,1 @@
-partial C from plugin - <?= $this->render_partial( 'partial-d' ) ?>
+partial C from plugin - <?= $this->section( 'partial-d' ) ?>

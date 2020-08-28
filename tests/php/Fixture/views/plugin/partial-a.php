@@ -1,1 +1,1 @@
-partial A from plugin - <?= $this->render_partial( 'partial-b' ) ?>
+partial A from plugin - <?= $this->section( 'partial-b' ) ?>

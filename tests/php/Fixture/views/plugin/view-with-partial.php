@@ -1,1 +1,1 @@
-<p>Rendering works with partials: <?= $this->render_partial( 'partial' ) ?>.</p>
+<p>Rendering works with partials: <?= $this->section( 'partial' ) ?>.</p>
