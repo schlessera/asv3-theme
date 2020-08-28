@@ -17,11 +17,11 @@ final class AssetResolver {
 	/**
 	 * @var string[]|null
 	 */
-	private static  $manifest;
+	private static $manifest;
 
 
 	/**
-	 * @param $path
+	 * @param string $path
 	 *
 	 * @return string
 	 */
@@ -53,7 +53,7 @@ final class AssetResolver {
 
 
 	/**
-	 * @param $string
+	 * @param string $string
 	 *
 	 * @return string
 	 */
