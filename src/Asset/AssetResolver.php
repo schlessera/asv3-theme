@@ -30,10 +30,10 @@ final class AssetResolver {
 		$map  = self::get_manifest();
 
 		if ( ! is_array( $map ) || ! isset( $map[ $path ] ) ) {
-			return get_stylesheet_directory_uri() . '/assets' . $path;
+			return dirname( get_stylesheet_directory_uri() ) . '/assets' . $path;
 		}
 
-		return get_stylesheet_directory_uri() . '/assets' . self::leading_slash_it( $map[ $path ] );
+		return dirname( get_stylesheet_directory_uri() ) . '/assets' . self::leading_slash_it( $map[ $path ] );
 	}
 
 
@@ -42,7 +42,7 @@ final class AssetResolver {
 	 */
 	private static function get_manifest() {
 		if ( null === self::$manifest ) {
-			$manifest       = get_stylesheet_directory() . '/assets/mix-manifest.json';
+			$manifest       = dirname( get_stylesheet_directory() ) . '/assets/mix-manifest.json';
 			$map            = file_get_contents( $manifest );
 			$map            = json_decode( $map, true );
 			self::$manifest = $map;
