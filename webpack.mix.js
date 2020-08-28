@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-//require('laravel-mix-purgecss');
+require('laravel-mix-purgecss');
 
 mix.setPublicPath('./assets');
 
@@ -26,8 +26,19 @@ mix.sass('assets/src/scss/theme.scss', 'css')
 	.options({
 		processCssUrls: false,
 		postCss: [ tailwindcss('./tailwind.config.js') ]
+	})
+	.purgeCss({
+		enabled: true,
+		extend: {
+			content: [
+				'assets/js/**/*.js',
+				'assets/js/**/*.jsx',
+				'src/**/*.php',
+				'views/**/*.php',
+			],
+			whitelistPatterns: [/hljs/],
+		},
 	});
-
 
 if (mix.inProduction()) {
 	require('laravel-mix-versionhash');
