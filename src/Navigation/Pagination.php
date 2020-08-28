@@ -21,7 +21,7 @@ final class Pagination implements Service, Registerable {
 	/**
 	 * @var ViewFactory
 	 */
-	private ViewFactory $view_factory;
+	private $view_factory;
 
 	/**
 	 * Pagination constructor.
