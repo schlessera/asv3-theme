@@ -13,6 +13,7 @@
 namespace MWPD\MwpdTheme;
 
 use MWPD\MwpdTheme\Asset\MainStylesheet;
+use MWPD\MwpdTheme\Feature\FeaturedImage;
 use MWPD\MwpdTheme\Navigation\Pagination;
 use MWPD\MwpdTheme\Sidebar\BlogSidebar;
 use MWPD\MwpdTheme\Navigation\MenuLocations;
@@ -61,6 +62,7 @@ final class MwpdTheme extends ServiceBasedTheme {
 			'navigation'             => MenuLocations::class,
 			'blog_sidebar'           => BlogSidebar::class,
 			'pagination'             => Pagination::class,
+			'featured_image'         => FeaturedImage::class,
 		];
 	}
 
