@@ -75,7 +75,7 @@ final class TemplatedViewFactory implements Service, ViewFactory {
 					\trailingslashit( \dirname( \get_template_directory() ) ) . 'views/',
 					\trailingslashit( \dirname( __DIR__, 3 ) ) . 'views/',
 				]
-				: [ \dirname( __DIR__, 3 ) . 'views/' ];
+				: [ \dirname( __DIR__, 3 ) . '/views/' ];
 		}
 
 		return $default_locations;
